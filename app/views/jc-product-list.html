@@ -1,0 +1,17 @@
+<ul>
+  <li class="product" ng-repeat="product in products">
+    <h4 class="title" ng-bind="product.title"></h4>
+    <span ng-bind="product.price"></span>
+    <br>
+    <button ng-disabled="cart.checkingOut" class="btn" ng-click="cart.add(product.id)">Add to Cart</button>
+    <div ng-disabled="cart.checkingOut" ng-show="cart.items[product.id]">
+      {{ cart.items[product.id] }} in cart!
+      <button ng-disabled="cart.checkingOut" class="btn btn-danger" ng-click="cart.removeAll(product.id)">
+        remove all
+      </button>
+      <button ng-disabled="cart.checkingOut" class="btn" ng-click="cart.decrease(product.id)">
+        remove one
+      </button>
+    </div>
+  </li>
+</ul>

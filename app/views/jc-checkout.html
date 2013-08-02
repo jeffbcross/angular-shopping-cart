@@ -1,0 +1,31 @@
+<h2>Checkout</h2>
+<ng-form class="form-vertical" name="checkoutForm">
+  <fieldset>
+    <div class="control-group">
+      <label for="user.name">
+        Your name:
+        <input ng-model="user.name" placeholder="John Doe" required>
+      </label>
+      <label for="user.street">
+        Your address:
+        <input ng-model="user.street" placeholder="1 Easy Street" ng-pattern="/[0-9]+ [A-Za-z\. ]+$/" required>
+      </label>
+      <label for="user.city">
+        City, State, Zip:
+        <input ng-model="user.region" placeholder="Phoenix, AZ 85044" ng-pattern="/^[a-zA-Z ]+, [a-zA-Z]{2} [0-9]{5}(\-[0-9]{4})?$/" required>
+      </label>
+      <label for="promise">
+        I promise to pay.
+        <input type="checkbox" ng-model="promise" required>
+      </label>
+    </div>
+
+    
+  </fieldset>
+  <h3 ng-hide="cart.isEmpty()">Total: {{ cart.total | currency:"$"}}</h3>
+  <input class="btn btn-primary" value="Complete Order" type="submit" ng-disabled="checkoutForm.$invalid" ng-click="submit()">
+</ng-form>
+
+<button ng-click="cart.checkingOut = false" class="btn btn-danger pull-right">
+  Cancel
+</button>
