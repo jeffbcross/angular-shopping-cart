@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('initApp')
-  .controller('JcCartCtrl', function ($scope, $filter, cart, products) {
-    $scope.cart = cart;
-    $scope.products = products;
-    $scope.$watch('cart.isEmpty()', function (empty) {
-      if (empty) $scope.checkingOut = false;
-    })
+  .controller('JCCartCtrl', function ($scope, jcProducts, jcCart) {
+    $scope.products = jcProducts;
+    $scope.cart = jcCart;
   });

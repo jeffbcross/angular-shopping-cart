@@ -1,26 +1,18 @@
-<div class="well">
-  <div ng-hide="cart.checkingOut">
-    <h2>Your Cart</h2>
-    <em ng-show="cart.isEmpty()">
-      Your cart currently doesn't have any items.
-      Please buy something.
+<div ng-hide="cart.checkingOut">
+  <h2>My Cart</h2>
+  <div ng-repeat="(key, value) in cart.items">
+    {{products.products[key].title}}: {{value}}
+  </div>
+  <h4>Total: {{ cart.total | currency:"$"}}</h4>
 
-    </em>
-    <div ng-repeat="(key, value) in cart.items">
-      <strong>Item</strong>: {{products.products[key].title}}
-      <br>
-      <strong>Quantity</strong>: {{cart.items[key]}}
-    </div>
-    <h3 ng-hide="cart.isEmpty()">Total: {{ cart.total | currency:"$"}}</h3>
-    <hr>
-    <button ng-disabled="cart.isEmpty()" ng-click="cart.clearCart()" class="btn btn-danger pull-right">
-      Clear Cart
-    </button>
-    <button ng-disabled="cart.isEmpty()" class="btn btn-primary" ng-click="cart.checkingOut = true">
-      Checkout
-    </button>
-  </div>
-  <div ng-show="cart.checkingOut">
-    <jc-checkout></jc-checkout>
-  </div>
+  <button ng-click="cart.clear()" class="btn btn-danger pull-right">
+    Clear
+  </button>
+  <button class="btn btn-primary" ng-click="cart.checkingOut = true">
+    Checkout
+  </button>
+</div>
+<div ng-show="cart.checkingOut">
+  <h2>Checkout</h2>
+  <jc-checkout></jc-checkout>
 </div>

@@ -24,6 +24,14 @@
 			"required": false,
 			"id": "description",
 			"order": 2
+		},
+		"thumbnail": {
+			"name": "thumbnail",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "thumbnail",
+			"order": 3
 		}
 	}
 }

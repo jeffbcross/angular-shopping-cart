@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('initApp')
-  .controller('JcProductListCtrl', function ($scope, products, cart) {
-    $scope.products = products.getAll();
-    $scope.cart = cart;
+  .controller('JCProductListCtrl', function ($scope, jcProducts, jcCart) {
+    $scope.products = jcProducts.get();
+    $scope.cart = jcCart;
   });

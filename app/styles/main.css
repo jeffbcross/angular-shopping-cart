@@ -1,1 +1,29 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+.row.product .thumbnail {
+  background-size: cover;
+  float: left;
+  width: 120px;
+  height: 120px;
+  margin: 0 12px 24px;
+}
+
+.row.product .title {
+  font-weight: bold;
+  display: block;
+  font-size: 1.1em;
+  line-height: 2.1em;
+}
+
+.row.product .description {
+  display: block;
+  margin: 6px 6px 24px;
+}
+
+.row.product .actions {
+  padding: 6px 12px;
+}
+
+.cart-product {
+  border-bottom: 1px solid #eee;
+  padding: 12px;
+}

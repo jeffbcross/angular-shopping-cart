@@ -1,31 +1,21 @@
-<h2>Checkout</h2>
-<ng-form class="form-vertical" name="checkoutForm">
-  <fieldset>
-    <div class="control-group">
-      <label for="user.name">
-        Your name:
-        <input ng-model="user.name" placeholder="John Doe" required>
-      </label>
-      <label for="user.street">
-        Your address:
-        <input ng-model="user.street" placeholder="1 Easy Street" ng-pattern="/[0-9]+ [A-Za-z\. ]+$/" required>
-      </label>
-      <label for="user.city">
-        City, State, Zip:
-        <input ng-model="user.region" placeholder="Phoenix, AZ 85044" ng-pattern="/^[a-zA-Z ]+, [a-zA-Z]{2} [0-9]{5}(\-[0-9]{4})?$/" required>
-      </label>
-      <label for="promise">
-        I promise to pay.
-        <input type="checkbox" ng-model="promise" required>
-      </label>
-    </div>
+<ng-form name="user">
+  <div class="control-group">
+    <input ng-model="user.name" ng-pattern="validation.name" required placeholder="Your Name">
+  </div>
+  <div class="control-group">
+    <input ng-model="user.address1" ng-pattern="validation.address1" required>
+  </div>
+  <div class="control-group">
+    <input ng-model="user.address2" ng-pattern="validation.address2" required>
+  </div>
+  <div class="control-group">
 
-    
-  </fieldset>
-  <h3 ng-hide="cart.isEmpty()">Total: {{ cart.total | currency:"$"}}</h3>
-  <input class="btn btn-primary" value="Complete Order" type="submit" ng-disabled="checkoutForm.$invalid" ng-click="submit()">
+    <input type="checkbox" ng-model="user.promise" required> I promise to pay Jeff.
+  </div>
+  <button ng-disabled="user.$invalid" ng-click="cart.submit(user)">
+    Submit
+  </button>
+  <button ng-click="cart.checkingOut = false">
+    Cancel
+  </button>
 </ng-form>
-
-<button ng-click="cart.checkingOut = false" class="btn btn-danger pull-right">
-  Cancel
-</button>
